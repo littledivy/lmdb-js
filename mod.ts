@@ -222,7 +222,7 @@ class Cursor extends CBridge {
 	}
 }
 function toCString(str: string): Uint8Array {
-	return str == null ? new Uint8Array(0) : textEncoder.encode(str + '\x00');
+	return str == null ? new Uint8Array(0) : Deno.core.encode(str + '\x00');
 }
 function setGlobalBuffer(buffer: Uint8Array) {
 	setGlobalBuffer2(buffer, buffer.length);

@@ -58,10 +58,11 @@
     "prebuildify": "prebuildify",
     "recompile": "node-gyp clean && node-gyp configure && node-gyp build",
     "test": "mocha test/**.test.js --recursive && npm run test:types",
-    "deno-test": "deno run --allow-ffi --allow-write --allow-read --allow-env --allow-net --unstable test/deno.ts",
+    "deno-test": "../deno/target/release/deno run --allow-ffi --allow-write --allow-read --allow-env --allow-net --unstable test/deno.ts",
     "test2": "mocha test/performance.js -u tdd",
     "test:types": "tsd",
-    "benchmark": "node --turbo-fast-api-calls ./benchmark/index.js"
+    "benchmark": "node --turbo-fast-api-calls ./benchmark/index.js",
+    "deno-benchmark": "deno bench --allow-ffi --allow-write --allow-read --allow-env --allow-net --unstable --no-check ./benchmark/deno.ts"
   },
   "gypfile": true,
   "dependencies": {
